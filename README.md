@@ -1,2 +1,2 @@
-# GuessNumberGame
+# Guess Number Game
 GuessNumber.py
