@@ -3,7 +3,7 @@ import random
 
 def start_game():
     num = random.randint(1, 10)
-    tryes = 0
+    attempts = 0
     print("Я загадал число от 1 до 10. Попробуй угадать")
     
     while True:
