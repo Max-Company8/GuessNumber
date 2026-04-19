@@ -1,6 +1,7 @@
 import random
 
-def game():
+
+def start_game():
     num = random.randint(1, 10)
     tryes = 0
     print("Я загадал число от 1 до 10. Попробуй угадать")
@@ -10,21 +11,27 @@ def game():
         
         if guess < num:
             print("Ваше число меньше, чем задумано")
-            tryes += 1
+            attempts += 1
         elif guess > num:
             print("Ваше число больше, чем задумано")
-            tryes += 1
+            attempts += 1
         else:
             print("Вы угадали!")
             print("Количество попыток:", tryes + 1)
             break
+    game(True)
 
-start = input("Угадаете целое число от 1 до 10? (Да/Нет): ")
 
-while start.lower() not in ["да", "нет"]:
-    start = input("Пожалуйста, ответьте 'Да' или 'Нет': ")
+def game(retry: bool = False):
+    text = "Угадаете целое число от 1 до 10? (Да/Нет): " if not retry else "Хотите продолжить игру? (Да/Нет):"
+    start = input(text)
+    
+    while start.lower() not in ["да", "нет"]:
+        start = input("Пожалуйста, ответьте 'Да' или 'Нет': ")
+    
+    if start.lower() == "да":
+        start_game()
+    else:
+        print("До свидания!")
 
-if start.lower() == "да":
-    game()
-else:
-    print("До свидания!")
+game()
