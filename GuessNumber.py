@@ -7,8 +7,11 @@ def start_game():
     print("Я загадал число от 1 до 10. Попробуй угадать")
     
     while True:
-        guess = int(input("Введите число: "))
-        
+        try:
+            guess = int(input("Введите число: "))
+        except ValueError:
+            print("Ошибка! Введите число!")
+            continue
         if guess < num:
             print("Ваше число меньше, чем задумано")
             attempts += 1
