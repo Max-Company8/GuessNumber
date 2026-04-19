@@ -17,7 +17,7 @@ def start_game():
             attempts += 1
         else:
             print("Вы угадали!")
-            print("Количество попыток:", tryes + 1)
+            print("Количество попыток:", attempts + 1)
             break
     game(True)
 
