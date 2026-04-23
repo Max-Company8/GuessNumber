@@ -11,7 +11,7 @@ label = tk.Label(win, text = "Hello World! This is a Test!")
 label.pack(pady = 20)
 
 def on_button_click():
-    label.config(text = "Кнопка нажата!")
+    label.config(text = "Button is dawn!")
 
 btn = tk.Button(win, text = "Test me", bg = 'white', fg = 'black', command = on_button_click)
 btn.pack(expand = True)
