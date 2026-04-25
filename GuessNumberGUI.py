@@ -50,24 +50,24 @@ label.pack(pady = 20)
 stop = 0
 
 def pole():
-    global stop, entr
+    global stop
     stop += 1
     if stop == 1:
-        entr = tk.Entry(win, bg = "#77A1B9")
-        entr.place(x = 200, y = 69, width = 100, height = 25) 
+        entry = tk.Entry(win, bg = "#77A1B9")
+        entry.place(x = 200, y = 69, width = 100, height = 25) 
         btnOk.place(x = 320, y = 69)
         label.config(text = "Попробуй Угадать")
         btn.destroy()
-        btnNo.config(text = "Выйти")
+        btnNo.config(text = "Выйти", command=lambda: close(entry))
         btnNo.pack(expand = True)
 
-def close():
+def close(entry=None):
     label.config(text = "До Свидания!", font=('Times New Roman', 25))
     label.pack(expand = True)
     btn.destroy()
     btnNo.destroy()
     btnOk.destroy()
-    entr.destroy()
+    entry.destroy() if entry else None
     win.after(1000, win.destroy)
 btn = tk.Button(win, text = "Да", bg = '#FFC57E', activebackground = '#A66E29', width = 15, height = 2, command = pole)
 btn.place(x = 200, y = 250)
